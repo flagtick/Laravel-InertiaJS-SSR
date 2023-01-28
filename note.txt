@@ -1,0 +1,63 @@
+
+npm install @vue/server-renderer @inertiajs/server
+
+type nul > ssr.js
+
+import { createSSRApp, h } from "vue";
+import { renderToString } from "@vue/server-renderer";
+import { createInertiaApp, Link, Head } from "@inertiajs/inertia-vue3";
+import createServer from "@inertiajs/server";
+
+createServer((page) =>
+    createInertiaApp({
+        page,
+        render: renderToString,
+        resolve: (name) => require(`./Pages/${name}`),
+        setup({ app, props, plugin }) {
+            return createSSRApp({
+                render: () => h(app, props),
+            }).use(plugin);
+        },
+    })
+);
+
+
+type nul > webpack.ssr.mix.js
+
+const path = require("path");
+const mix = require("laravel-mix");
+const webpackNodeExternals = require("webpack-node-externals");
+
+// Build files
+mix.options({ manifest: false })
+    .js("resources/js/ssr.js", "public/js")
+    .vue({ version: 3, options: { optimizeSSR: true } })
+    .alias({ "@": path.resolve("resources/js") })
+    .webpackConfig({
+        target: "node",
+        externals: [webpackNodeExternals()],
+    })
+    .version();
+
+php artisan vendor:publish --provider="Inertia\ServiceProvider"
+
+config/inertia.php -> ssr: true
+
+package.js
+
+"ssr-dev": "mix && mix --mix-config=webpack.ssr.mix.js"
+
+node public/js/ssr.js
+
+DISABLE data-page
+
+
+AFTER CONFIGURATION => YOUR MANIPULATION AS BELOW
+node public/js/ssr.js
+npm run ssr (both of run npm run dev and webpack.ssr.mix.js as well)
+php artisan server
+
+
+
+
+
