@@ -11,6 +11,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var i18next_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! i18next-vue */ "./node_modules/i18next-vue/dist/index.mjs");
+
 var __default__ = {
   data: function data() {
     return {
@@ -19,7 +21,7 @@ var __default__ = {
   },
   created: function created() {
     console.log(this.name);
-    console.log(this.$t('welcome'));
+    console.log(this.$a('welcome'));
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/Object.assign(__default__, {
@@ -31,8 +33,13 @@ var __default__ = {
     var expose = _ref.expose;
     expose();
     var props = __props;
+    var $a = (0,i18next_vue__WEBPACK_IMPORTED_MODULE_0__.useTranslation)().t;
     var __returned__ = {
-      props: props
+      props: props,
+      $a: $a,
+      get useTranslation() {
+        return i18next_vue__WEBPACK_IMPORTED_MODULE_0__.useTranslation;
+      }
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -58,7 +65,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "This event is by: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.person.name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "This product is named: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t("welcome")), 1 /* TEXT */)]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "This event is by: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.person.name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "This product is named: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.$a("welcome")), 1 /* TEXT */)]);
 }
 
 /***/ }),
@@ -84,7 +91,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 i18next__WEBPACK_IMPORTED_MODULE_2__["default"].use(i18next_browser_languagedetector__WEBPACK_IMPORTED_MODULE_4__["default"]).init({
-  debug: true,
+  debug: false,
   fallbackLng: 'en',
   resources: {
     en: {
@@ -161,13 +168,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _App_vue_vue_type_template_id_0ec91988__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue?vue&type=template&id=0ec91988 */ "./resources/js/Pages/App.vue?vue&type=template&id=0ec91988");
 /* harmony import */ var _App_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue?vue&type=script&setup=true&lang=js */ "./resources/js/Pages/App.vue?vue&type=script&setup=true&lang=js");
-/* harmony import */ var C_Users_admin_Documents_ssr_inertiassr_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_admin_Documents_eco_ssr_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_Users_admin_Documents_ssr_inertiassr_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_App_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_App_vue_vue_type_template_id_0ec91988__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/App.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_admin_Documents_eco_ssr_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_App_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_App_vue_vue_type_template_id_0ec91988__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/App.vue"]])
 /* hot reload */
 if (false) {}
 
