@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>This event is by: {{ person.name }}</h1>
-        <p>This product is named: {{ name }}</p>
+        <p>This product is named: {{ $t("welcome") }}</p>
     </div>
 </template>
 <script setup>
@@ -15,6 +15,9 @@ const props = defineProps({
             return {
                 name: "Nguyen Van Vuong"
             }
+        },
+        created() {
+            console.log(this.name);
         }
     }
 </script>

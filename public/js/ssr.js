@@ -17,6 +17,9 @@ var __default__ = {
     return {
       name: "Nguyen Van Vuong"
     };
+  },
+  created: function created() {
+    console.log(this.name);
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/Object.assign(__default__, {
@@ -56,8 +59,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_server_renderer__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_server_renderer__WEBPACK_IMPORTED_MODULE_0__);
 
 function ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  _push("<div".concat((0,vue_server_renderer__WEBPACK_IMPORTED_MODULE_0__.ssrRenderAttrs)(_attrs), "><h1>This event is by: ").concat((0,vue_server_renderer__WEBPACK_IMPORTED_MODULE_0__.ssrInterpolate)($props.person.name), "</h1><p>This product is named: ").concat((0,vue_server_renderer__WEBPACK_IMPORTED_MODULE_0__.ssrInterpolate)($data.name), "</p></div>"));
+  _push("<div".concat((0,vue_server_renderer__WEBPACK_IMPORTED_MODULE_0__.ssrRenderAttrs)(_attrs), "><h1>This event is by: ").concat((0,vue_server_renderer__WEBPACK_IMPORTED_MODULE_0__.ssrInterpolate)($props.person.name), "</h1><p>This product is named: ").concat((0,vue_server_renderer__WEBPACK_IMPORTED_MODULE_0__.ssrInterpolate)(_ctx.$t("welcome")), "</p></div>"));
 }
+
+/***/ }),
+
+/***/ "./resources/js/lang/en.js":
+/*!*********************************!*\
+  !*** ./resources/js/lang/en.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "locales": () => (/* binding */ locales)
+/* harmony export */ });
+var locales = {
+  en: {
+    welcome: 'Hello!'
+  }
+};
 
 /***/ }),
 
@@ -206,6 +228,39 @@ module.exports = require("@vue/server-renderer");
 
 /***/ }),
 
+/***/ "i18next":
+/*!**************************!*\
+  !*** external "i18next" ***!
+  \**************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("i18next");
+
+/***/ }),
+
+/***/ "i18next-browser-languagedetector":
+/*!***************************************************!*\
+  !*** external "i18next-browser-languagedetector" ***!
+  \***************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("i18next-browser-languagedetector");
+
+/***/ }),
+
+/***/ "i18next-vue":
+/*!******************************!*\
+  !*** external "i18next-vue" ***!
+  \******************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("i18next-vue");
+
+/***/ }),
+
 /***/ "vue":
 /*!**********************!*\
   !*** external "vue" ***!
@@ -312,10 +367,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _inertiajs_server__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/server */ "@inertiajs/server");
 /* harmony import */ var _inertiajs_server__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_inertiajs_server__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var i18next__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! i18next */ "i18next");
+/* harmony import */ var i18next__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(i18next__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var i18next_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! i18next-vue */ "i18next-vue");
+/* harmony import */ var i18next_vue__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(i18next_vue__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var i18next_browser_languagedetector__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! i18next-browser-languagedetector */ "i18next-browser-languagedetector");
+/* harmony import */ var i18next_browser_languagedetector__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(i18next_browser_languagedetector__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _lang_en_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./lang/en.js */ "./resources/js/lang/en.js");
 
 
 
 
+
+
+
+
+i18next__WEBPACK_IMPORTED_MODULE_4___default().use((i18next_browser_languagedetector__WEBPACK_IMPORTED_MODULE_6___default())).init({
+  debug: true,
+  fallbackLng: 'en',
+  resources: {
+    en: {
+      translation: _lang_en_js__WEBPACK_IMPORTED_MODULE_7__.locales.en
+    }
+  }
+});
 _inertiajs_server__WEBPACK_IMPORTED_MODULE_3___default()(function (page) {
   return (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.createInertiaApp)({
     page: page,
@@ -331,6 +406,8 @@ _inertiajs_server__WEBPACK_IMPORTED_MODULE_3___default()(function (page) {
         render: function render() {
           return (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(app, props);
         }
+      }).use((i18next_vue__WEBPACK_IMPORTED_MODULE_5___default()), {
+        i18next: (i18next__WEBPACK_IMPORTED_MODULE_4___default())
       }).use(plugin);
     }
   });

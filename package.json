@@ -22,6 +22,9 @@
         "@inertiajs/vue3": "^1.0.0",
         "@vue/compiler-sfc": "^3.2.45",
         "@vue/server-renderer": "^3.2.45",
+        "i18next": "^22.4.9",
+        "i18next-browser-languagedetector": "^7.0.1",
+        "i18next-vue": "^2.1.1",
         "vue": "^3.2.45",
         "vue-loader": "^17.0.1",
         "webpack-node-externals": "^3.0.0"

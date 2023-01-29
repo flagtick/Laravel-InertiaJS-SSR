@@ -16,6 +16,9 @@ var __default__ = {
     return {
       name: "Nguyen Van Vuong"
     };
+  },
+  created: function created() {
+    console.log(this.name);
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/Object.assign(__default__, {
@@ -54,7 +57,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "This event is by: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.person.name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "This product is named: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.name), 1 /* TEXT */)]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "This event is by: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.person.name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "This product is named: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t("welcome")), 1 /* TEXT */)]);
 }
 
 /***/ }),
@@ -69,8 +72,25 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _inertiajs_vue3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/vue3 */ "./node_modules/@inertiajs/vue3/dist/index.esm.js");
+/* harmony import */ var i18next__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! i18next */ "./node_modules/i18next/dist/esm/i18next.js");
+/* harmony import */ var i18next_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! i18next-vue */ "./node_modules/i18next-vue/dist/index.mjs");
+/* harmony import */ var i18next_browser_languagedetector__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! i18next-browser-languagedetector */ "./node_modules/i18next-browser-languagedetector/dist/esm/i18nextBrowserLanguageDetector.js");
+/* harmony import */ var _lang_en_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./lang/en.js */ "./resources/js/lang/en.js");
 
 
+
+
+
+
+i18next__WEBPACK_IMPORTED_MODULE_2__["default"].use(i18next_browser_languagedetector__WEBPACK_IMPORTED_MODULE_4__["default"]).init({
+  debug: true,
+  fallbackLng: 'en',
+  resources: {
+    en: {
+      translation: _lang_en_js__WEBPACK_IMPORTED_MODULE_5__.locales.en
+    }
+  }
+});
 (0,_inertiajs_vue3__WEBPACK_IMPORTED_MODULE_1__.createInertiaApp)({
   resolve: function resolve(name) {
     return __webpack_require__("./resources/js/Pages sync recursive ^\\.\\/.*$")("./".concat(name));
@@ -87,9 +107,30 @@ __webpack_require__.r(__webpack_exports__);
       render: function render() {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(App, props);
       }
+    }).use(i18next_vue__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      i18next: i18next__WEBPACK_IMPORTED_MODULE_2__["default"]
     }).use(plugin).mount(el);
   }
 });
+
+/***/ }),
+
+/***/ "./resources/js/lang/en.js":
+/*!*********************************!*\
+  !*** ./resources/js/lang/en.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "locales": () => (/* binding */ locales)
+/* harmony export */ });
+var locales = {
+  en: {
+    welcome: 'Hello!'
+  }
+};
 
 /***/ }),
 

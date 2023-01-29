@@ -58,6 +58,21 @@ npm run ssr (both of run npm run dev and webpack.ssr.mix.js as well)
 php artisan server
 
 
+i18next
+  .use(LanguageDetector)
+  .init({
+    debug: true,
+    fallbackLng: 'en',
+    resources: {
+      en: {
+        translation: {
+          "welcome": "Welcome to my business!"
+        }
+      }
+    }
+  });
+
+
 
 
 
