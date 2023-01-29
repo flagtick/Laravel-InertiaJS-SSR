@@ -20,6 +20,7 @@ var __default__ = {
   },
   created: function created() {
     console.log(this.name);
+    console.log(this.$t('welcome'));
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/Object.assign(__default__, {

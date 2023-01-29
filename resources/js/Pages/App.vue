@@ -18,6 +18,7 @@ const props = defineProps({
         },
         created() {
             console.log(this.name);
+            console.log(this.$t('welcome'));
         }
     }
 </script>
